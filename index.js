@@ -12,6 +12,22 @@ app.use(
 
 app.use(express.json())
 
+// Rotas da API
+const personRoutes = require('./routes/personRoutes')
+
+app.use('/api/v1', personRoutes)
+
+app.use
+
+// Criando a rota inicial / endpoint
+app.get('/api/v1', (req, res) => {
+    try {
+        res.status(200).json({ message: 'Server on' })
+    } catch (error) {
+        res.status(500).json({ error: 'Server out' })
+    }
+})
+
 // Conexão do MongoDB com a API pelo Mongoose
 mongoose
     .connect(
@@ -22,16 +38,5 @@ mongoose
         app.listen(3000)
     })
     .catch((err) => console.log(err))
-
-// Criando a rota inicial / endpoint
-app.get('/api/v1', (req, res) => {
-    try {
-        res.status(200).json({message: 'Server on'})
-    } catch (error) {
-        res.status(500).json({error: 'Server out'})
-    }
-})
-
-// Rotas da API
 
 

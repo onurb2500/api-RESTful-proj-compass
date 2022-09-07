@@ -1,0 +1,59 @@
+{
+    "name": "Bruno Jaques",
+    "cpf":"11493411900",
+    "birthDate":"31122000",
+    "email":"bsj@gmail.com",
+    "password":"123deoliveira4",
+    "address":"Rua Dom Afonso",
+    "number": 48,
+    "complement": "Bl A Apto 104",
+    "city":"Palhoça",
+    "state":"Santa Catarina",
+    "country":"Brasil",
+    "zipCode":"88132305"
+}
+
+const {
+    name,
+    cpf,
+    birthDate,
+    email,
+    password,
+    address,
+    number,
+    complement,
+    city,
+    state,
+    country,
+    zipCode
+} = req.body
+
+const person = {
+    name,
+    cpf,
+    birthDate,
+    email,
+    password,
+    address,
+    number,
+    complement,
+    city,
+    state,
+    country,
+    zipCode
+}
+
+{
+    name: {type: String, required: true},
+    cpf: {type: String, required: true},
+    birthDate: {type: String, required: true},
+    email: {type: String, required: true},
+    password: {type: String, required: true},
+    address: {type: String, required: true},
+    number: {type: Number, required: true},
+    complement: {type: String, required: true},
+    city: {type: String, required: true},
+    state: {type: String, required: true},
+    country: {type: String, required: true},
+    zipCode: {type: Number, required: true},
+})
