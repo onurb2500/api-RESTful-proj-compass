@@ -98,7 +98,8 @@ router.patch('/users/:id', async (req, res) => {
     }
 
     try {
-        const updatePerson = await Person.updateOne({ _id: id, person})
+        const updatePerson = await Person.updateOne({ _id: id}, person)
+        res.status(200).json(person)
     } catch (error) {
         res.status(404).json({ error: 'User not find' })
     }
