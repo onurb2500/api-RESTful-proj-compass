@@ -105,6 +105,18 @@ router.patch('/users/:id', async (req, res) => {
     }
 })
 
+router.delete('/users/:id', async (req, res) => {
+    const id = req.params.id
+    
+    try {
+        await Person.deleteOne({ _id: id })
+        res.status(200).json({ message: 'User removed' })
+
+    } catch (error) {
+        
+    }
+})
+
 
 
 module.exports = router
