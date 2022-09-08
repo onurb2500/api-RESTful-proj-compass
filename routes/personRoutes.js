@@ -73,8 +73,8 @@ router.get('/users', async (req, res) => {
     try {
         const people = await Person.find().select('-password')
 
-        const page = 1
-        const limit = 3
+        const page = req.query.page
+        const limit = req.query.limit
 
         const startIndex = (page - 1) * limit
         const endIndex = page * limit
@@ -104,13 +104,13 @@ router.get('/users/:id', async (req, res) => {
 
 router.get('/users/name/:name', async (req, res) => {
     const name = req.params.name
+    const page = req.query.page
+    const limit = req.query.limit
 
 
     try {
         const person = await Person.find().select('-password')/*.filter(person => person.name.includes(name))*/
         const person2 = person.filter(perso => perso.name.includes(name))
-        const page = 1
-        const limit = 3
 
         const startIndex = (page - 1) * limit
         const endIndex = page * limit
